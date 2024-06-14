@@ -38,6 +38,5 @@ WORKDIR /app/audio-webui
 COPY ./.env /app
 COPY ./run.sh /app
 
-# If you have additional installation steps, uncomment and modify as needed
-# RUN --mount=type=cache,target=/root/.cache/pip bash /app/install.sh
-# RUN --mount=type=cache,target=/root/.cache/pip pip3 install tensorboardX
+# Specify the entry point script
+ENTRYPOINT ["/app/run.sh", "--listen"]
