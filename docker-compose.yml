@@ -1,5 +1,5 @@
-
 version: '3.8'
+
 services:
   app:
     build: .
@@ -10,7 +10,7 @@ services:
       - ./venv:/app/audio-webui/venv
     command: "/app/run.sh"
     environment:
-      - NVIDIA_VISIBLE_DEVICES=all
+      - AMD_VISIBLE_DEVICES=all
     env_file:
       - .env
     ports:
@@ -21,6 +21,6 @@ services:
       resources:
         reservations:
           devices:
-            - driver: nvidia
+            - driver: radeon
               device_ids: ['0']
               capabilities: [gpu]
